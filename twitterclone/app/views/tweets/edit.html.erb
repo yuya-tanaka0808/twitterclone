@@ -1,0 +1,13 @@
+<% @tweet.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+<p><%= notice %></p>
+<%= form_with(model: @tweet, local:true) do |form| %>
+  <div class="tweet_content">
+    <%= form.label :content %>
+    <br>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit "編集する" %>
+<% end %>
+<%= link_to "tweet一覧", tweets_path %>

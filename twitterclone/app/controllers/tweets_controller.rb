@@ -19,7 +19,9 @@ class TweetsController < ApplicationController
   def edit
   end
   def update
-
+    if @tweet.update(tweet_params)
+      redirect_to tweets_path, notice: "編集しました！"
+    end
   end
   def destroy
     @tweet.destroy
@@ -37,5 +39,4 @@ class TweetsController < ApplicationController
   def find_tweet
     @tweet = Tweet.find(params[:id])
   end
-
 end
