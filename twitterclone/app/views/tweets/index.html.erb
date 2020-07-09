@@ -1,0 +1,17 @@
+<h1>tweet一覧</h1>
+<p><%= notice %></p>
+<table>
+  <tr>
+    <th>内容</th>
+    <th>投稿日時</th>
+  </tr>
+  <%= @tweet.each do |tweet| %>
+    <tr>
+      <td><%= blog.content %></td>
+      <td><%= blog.content %></td>
+      <td><%= link_to '編集', edit_tweet_path(tweet.id) %></td>
+      <td><%= link_to '削除', tweet_path(tweet.id), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to '新規tweet', new_tweet_path %>
