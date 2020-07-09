@@ -8,8 +8,8 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
   def create
-    Tweet.create(blog_params)
-    if @blog.save
+    Tweet.create(tweet_params)
+    if @tweet.save
     redirect_to new_tweet_path, notice: "編集しました！"
     else
       render :edit
@@ -22,17 +22,19 @@ class TweetsController < ApplicationController
 
   end
   def destroy
-    
+
   end
   def confirm
-   @tweet = Tweet.new(blog_params)
-   render :new if @tweet.inbalid?
+   @tweet = Tweet.new(tweet_params)
+   render :new if @tweet.invalid?
   end
 
   private
-  def blog_params
+  def tweet_params
     params.require(:tweet).permit(:content)
   end
-
+  def find_tweet
+    @tweet = Tweet.find(params[:id])
+  end
 
 end

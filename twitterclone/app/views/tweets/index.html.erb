@@ -5,10 +5,10 @@
     <th>内容</th>
     <th>投稿日時</th>
   </tr>
-  <%= @tweet.each do |tweet| %>
+  <% @tweet.each do |tweet| %>
     <tr>
-      <td><%= blog.content %></td>
-      <td><%= blog.content %></td>
+      <td><%= tweet.content %></td>
+      <td><%= tweet.content %></td>
       <td><%= link_to '編集', edit_tweet_path(tweet.id) %></td>
       <td><%= link_to '削除', tweet_path(tweet.id), method: :delete %></td>
     </tr>
